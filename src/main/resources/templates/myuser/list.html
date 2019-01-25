@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>my user list</title>
+</head>
+<body>
+  <h2>循环迭代</h2>
+  <div>
+     <ul>
+         <li th:each="user,var:${users}">
+             <span th:text="${var.count}"></span>-
+             <span th:text="${user.name}"></span>-<input th:value="${user.name}" />-
+             <span th:text="${user.age}"></span>-
+             <span th:text="${user.address}"></span>
+         </li>
+     </ul>
+   </div>
+   <h2>字符串操作</h2>
+   <div><span>替换text:</span><span th:text="${user}">名字</span></div>
+   <div><span>替换value:</span><input th:value="${user}" value="value" /></div>
+   <div><span>判断字符串非空:</span><span th:unless="${#strings.isEmpty(user)}" th:text="${user}">名字</span></div>
+   <div><span>是否包含子串:</span><span th:if="${#strings.contains(user, 'aa')}" th:text="${user}">名字</span></div>
+   <div><span>是否以什么开头:</span><span th:if="${#strings.startsWith(user, '小')}" th:text="${user}">名字</span></div>
+   <div><span>字符串长度:</span><span th:if="${#strings.length(user)}>0" th:text="${user}">名字</span></div>
+   <div><span>截取子串:</span><span th:text="${#strings.substring(user,0,1)}">名字</span></div>
+   <div><span>转大写:</span><span th:text="${#strings.toUpperCase(user)}">名字</span></div>
+   <div><span>转小写:</span><span th:text="${#strings.toLowerCase(user)}">名字</span></div>
+   
+   <h2>日期操作</h2>
+   <div><span>yyyy-mm-dd:</span><span th:text="${#dates.format(mydate, 'yyyy-mm-dd')}">日期</span></div>
+   
+   <h2>作用域</h2>
+   Request:<span th:text="${user}"></span><br/>
+	Request:<span th:text="${#httpServletRequest.getAttribute('user')}"></span><br/>
+	Session:<span th:text="${session.sess}"></span><br/>
+	
+	<h2>url表达</h2>
+	<a th:href="@{http://www.baidu.com}" th:text="绝对路径"></a>
+		<hr>
+		<img th:src="@{/1.jpg}" style="height: 50px"/>
+		<hr>
+		<a th:href="@{/index}">相对路径 - 相对于应用的根</a>
+		<hr>
+		<a th:href="@{~/index}">相对路径 - 相对于服务器的根</a>
+		<hr>
+		<a th:href="@{index}">相对路径 - 相对于当前路径</a>
+		<hr>
+		<a th:href="@{/params(id=1,name=张三)}">参数传递</a>
+		<hr>
+		<a th:href="@{/restfulParams/{id}/{name}(id=2, name=李四)}">Restful传参</a>
+</body>
+</html>

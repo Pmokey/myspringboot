@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<body>
+<form th:action="@{/jdbc/update}" method="post">
+<span>用户名称：</span><span><input type="hidden" name="id" th:value="${user.id}"></span><br>
+<span>用户名称：</span><span><input name="name" th:value="${user.name}"></span><br>
+<span>年龄：</span><span><input name="age" th:value="${user.age}"></span><br>
+<span>地址：</span><span><input name="address" th:value="${user.address}"></span><br>
+<input type="submit" value="提交">
+</form>
+<span th:text="${msg}"></span>
+</body>
+</body>
+</html>

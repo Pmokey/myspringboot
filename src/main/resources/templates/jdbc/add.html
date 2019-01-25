@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/jdbc/add}" method="post">
+<span>用户名称：</span><span><input name="name"></span><font color="red" th:errors="${Valid.name}"></font><br>
+<span>年龄：</span><span><input name="age"></span><br>
+<span>地址：</span><span><input name="address"></span><br>
+<input type="submit" value="提交">
+</form>
+<span th:text="${msg}"></span>
+</body>
+</html>
