@@ -15,4 +15,12 @@
     <select id="findAll" resultMap="BaseResultMap">
     	 select * from myuser
     </select>
+    
+    <update id="updateUser"  parameterType="MyUser">
+        update myuser set address=#{address},age=#{age} where name=#{name}
+    </update>
+    
+    <select id="findUserByPage" parameterType="MyUser" resultMap="BaseResultMap">
+         select * from myuser 
+    </select>
 </mapper>

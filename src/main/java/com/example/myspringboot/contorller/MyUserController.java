@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.myspringboot.entity.MyUser;
 
+/**
+ * 
+ * @author wujw
+ *
+ */
 @Controller
 @RequestMapping("/myuser")
 public class MyUserController {
